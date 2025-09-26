@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: atlas-framework
+Version: 0.1.0
+Summary: Atlas: Python Knowledge-Network Framework (papers–code–datasets as a graph)
+Author-email: Han Jungwoo <example@example.com>
+License: Apache-2.0
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: networkx>=3.1
+Requires-Dist: pydantic>=2.0
+Requires-Dist: beautifulsoup4>=4.12
+Requires-Dist: gitpython>=3.1
+Requires-Dist: pyvis>=0.3.2
+Requires-Dist: pandas>=2.0
+Requires-Dist: plotly>=5.0
+Dynamic: license-file
+
+
+# Atlas – Research Network Framework (Starter)
+
+**Atlas**는 논문(Paper)·코드(CodeRepo)·데이터셋(Dataset)·개념(Concept)을 **그래프**로 연결하여
+탐색/시각화/요약/리포트 생성까지 지원하는 파이썬 프레임워크의 스타터 템플릿입니다.
+
+## 빠른 시작
+
+```bash
+# 1) 설치
+pip install -e .
+
+# 2) 예제 실행
+python examples/quickstart.py
+
+# 3) 인터랙티브 시각화(HTML)가 생성됩니다.
+#    출력: ./outputs/quickstart_graph.html
+```
+
+## 폴더 구조
+```
+src/atlas/
+  __init__.py
+  project.py         # Atlas 진입점
+  graph_store.py     # 네트워크 그래프 저장/로드
+  ingest/__init__.py
+  ingest/basic.py    # 간단 URL 인제스트
+  link/__init__.py
+  link/basic.py      # 링크 생성/제안
+  query/__init__.py
+  query/api.py       # 이웃/경로 쿼리
+  viz/__init__.py
+  viz/pyvis_viz.py   # PyVis 기반 시각화
+  export/__init__.py
+  export/report.py   # Markdown 리포트 생성
+examples/
+  quickstart.py
+outputs/
+  (실행 후 생성)
+```
+
+## 라이선스
+Apache-2.0
