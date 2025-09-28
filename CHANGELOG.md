@@ -1,0 +1,37 @@
+# Changelog
+
+## [0.2.4] - 2025-09-28
+### Added
+- docs/DEVELOPER_GUIDE.md 문서 추가
+
+## [0.2.3] - 2025-09-28
+### Added
+- CHANGELOG.md 파일 추가, 버전별 변경 이력 기록 시작
+
+### Fixed
+- 개발 환경에서 패키지 경로 꼬임 문제 재점검 및 정리
+
+---
+
+## [0.2.2] - 2025-09-28
+### Fixed
+- pyproject.toml 버전 번호를 0.1.0 → 0.2.2로 수정
+- 최신 코드/문서 반영
+
+---
+
+## [0.2.1] - 2025-09-27
+### Added
+- Full API import style 지원 (`from atlas import Atlas, Ingestor, Linker, Visualizer`)
+- 예제 `examples/minimal.py` 추가
+
+### Fixed
+- ImportError 문제 해결 (Ingestor/Linker 모듈 import 구조 정리)
+- __init__.py 개선 (lazy loading)으로 안정적인 import 지원
+
+---
+
+## [0.1.0] - 2025-09-25
+### Added
+- Atlas 초기 구조 생성
+- quickstart 예제 포함 (논문-코드 네트워크 그래프/리포트 생성)
