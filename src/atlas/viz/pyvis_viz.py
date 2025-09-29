@@ -38,8 +38,7 @@ class Visualizer:
             raise RuntimeError("pyvis가 설치되어 있어야 합니다. pip install pyvis") from e
 
         G = subgraph or self.store.g
-        net = Network(height=height, width='100%', bgcolor=BG_COLOR, font_color='white',
-                      notebook=False, directed=True)
+        net = Network(height=height, width='100%', bgcolor=BG_COLOR, font_color='white', notebook=False, directed=True)
         net.toggle_physics(physics)
 
         # Nodes

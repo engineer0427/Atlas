@@ -33,8 +33,8 @@
 
              #mynetwork {
                  width: 100%;
-                 height: 700px;
-                 background-color: #13264E;
+                 height: 750px;
+                 background-color: #ffffff;
                  border: 1px solid lightgray;
                  position: relative;
                  float: left;
@@ -88,8 +88,8 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#AFC7FF", "font": {"color": "white"}, "id": "Paper:resnet2015", "label": "ResNet Paper", "shape": "dot", "size": 22, "title": "\u003cb\u003eResNet Paper\u003c/b\u003e\u003cbr\u003eType: Paper\u003cbr\u003eYear: 2015\u003cbr\u003eURL: https://arxiv.org/abs/1512.03385"}, {"color": "#A9E6C6", "font": {"color": "white"}, "id": "CodeRepo:resnet-code", "label": "ResNet GitHub", "shape": "dot", "size": 22, "title": "\u003cb\u003eResNet GitHub\u003c/b\u003e\u003cbr\u003eType: CodeRepo\u003cbr\u003eURL: https://github.com/keras-team/keras"}]);
-                  edges = new vis.DataSet([{"arrows": "to", "color": "#FFFFFF", "dashes": false, "from": "Paper:resnet2015", "label": "IMPLEMENTS", "to": "CodeRepo:resnet-code", "width": 3}]);
+                  nodes = new vis.DataSet([{"color": "#1f77b4", "font": {"color": "black"}, "id": "paper1", "label": "ResNet Paper", "shape": "ellipse"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "code1", "label": "ResNet Code", "shape": "box"}]);
+                  edges = new vis.DataSet([{"from": "paper1", "label": "implements", "to": "code1"}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });
@@ -100,35 +100,7 @@
                   // adding nodes and edges to the graph
                   data = {nodes: nodes, edges: edges};
 
-                  var options = {
-    "configure": {
-        "enabled": false
-    },
-    "edges": {
-        "color": {
-            "inherit": true
-        },
-        "smooth": {
-            "enabled": true,
-            "type": "dynamic"
-        }
-    },
-    "interaction": {
-        "dragNodes": true,
-        "hideEdgesOnDrag": false,
-        "hideNodesOnDrag": false
-    },
-    "physics": {
-        "enabled": true,
-        "stabilization": {
-            "enabled": true,
-            "fit": true,
-            "iterations": 1000,
-            "onlyDynamicEdges": false,
-            "updateInterval": 50
-        }
-    }
-};
+                  var options = {"physics": {"enabled": true, "repulsion": {"nodeDistance": 250, "centralGravity": 0.3, "springLength": 150, "springStrength": 0.05}}, "layout": {"improvedLayout": true}};
 
                   
 

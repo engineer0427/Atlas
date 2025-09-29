@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.5] - 2025-09-29
+### Changed
+- Visualizer 기본 옵션 개선 (노드 겹침 완화, 더 유연한 인터랙션 유지)
+- 새로운 예제 `example01, example02'
+
 ## [0.2.4] - 2025-09-28
 ### Added
 - docs/DEVELOPER_GUIDE.md 문서 추가

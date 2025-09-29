@@ -15,6 +15,7 @@ src/atlas/query/__init__.py
 src/atlas/query/api.py
 src/atlas/viz/__init__.py
 src/atlas/viz/pyvis_viz.py
+src/atlas/viz/visualizer.py
 src/atlas_framework.egg-info/PKG-INFO
 src/atlas_framework.egg-info/SOURCES.txt
 src/atlas_framework.egg-info/dependency_links.txt
