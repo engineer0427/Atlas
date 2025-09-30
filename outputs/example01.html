@@ -88,7 +88,7 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#1f77b4", "font": {"color": "black"}, "id": "paper1", "label": "ResNet Paper", "shape": "ellipse"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "code1", "label": "ResNet GitHub", "shape": "box"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "dataset1", "label": "ImageNet", "shape": "diamond"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "paper2", "label": "ViT Paper", "shape": "ellipse"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "code2", "label": "ViT GitHub", "shape": "box"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "dataset2", "label": "CIFAR-100", "shape": "diamond"}]);
+                  nodes = new vis.DataSet([{"color": "#1f77b4", "font": {"color": "black"}, "id": "paper1", "label": "ResNet Paper", "shape": "ellipse", "size": 20, "title": "PAPER | ResNet Paper"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "code1", "label": "ResNet GitHub", "shape": "box", "size": 15, "title": "CODE | ResNet GitHub"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "dataset1", "label": "ImageNet", "shape": "diamond", "size": 15, "title": "DATASET | ImageNet"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "paper2", "label": "ViT Paper", "shape": "ellipse", "size": 20, "title": "PAPER | ViT Paper"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "code2", "label": "ViT GitHub", "shape": "box", "size": 15, "title": "CODE | ViT GitHub"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "dataset2", "label": "CIFAR-100", "shape": "diamond", "size": 15, "title": "DATASET | CIFAR-100"}]);
                   edges = new vis.DataSet([{"from": "paper1", "label": "implements", "to": "code1"}, {"from": "paper1", "label": "uses", "to": "dataset1"}, {"from": "paper2", "label": "implements", "to": "code2"}, {"from": "paper2", "label": "uses", "to": "dataset2"}, {"from": "code2", "label": "transfer", "to": "dataset1"}]);
 
                   nodeColors = {};
@@ -100,7 +100,51 @@
                   // adding nodes and edges to the graph
                   data = {nodes: nodes, edges: edges};
 
-                  var options = {"physics": {"enabled": true, "repulsion": {"nodeDistance": 250, "centralGravity": 0.3, "springLength": 150, "springStrength": 0.05}}, "layout": {"improvedLayout": true}};
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "repulsion": {
+            "centralGravity": 0.25,
+            "damping": 0.09,
+            "nodeDistance": 350,
+            "springConstant": 0.03,
+            "springLength": 200
+        },
+        "solver": "repulsion",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
 
                   
 

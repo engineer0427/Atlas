@@ -23,11 +23,6 @@
    pip install -e .
    ```
 
-4. 예제 실행
-   ```bash
-   python -m examples.minimal
-   ```
-
 ---
 
 ## 🚀 새 버전 릴리스 절차

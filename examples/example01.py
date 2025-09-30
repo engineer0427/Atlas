@@ -1,6 +1,6 @@
 from atlas.viz.visualizer import Visualizer
 
-def run():
+def main():
     viz = Visualizer()
 
     # 노드 추가 (타입별)
@@ -25,4 +25,4 @@ def run():
     viz.show("outputs/example01.html")
 
 if __name__ == "__main__":
-    run()
+    main()

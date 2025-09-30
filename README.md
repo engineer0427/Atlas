@@ -7,14 +7,8 @@ Atlas는 논문, 코드, 데이터셋을 연결해 연구 네트워크를 **지�
 pip install -e .
 ```
 
-## 실행
-```bash
-python examples/quickstart.py
-```
-
 ## 결과
-- `outputs/quickstart_graph.html` → 네트워크 그래프 (브라우저에서 열기)
-- `outputs/quickstart_report.md` → 노드/엣지 리포트
+- `example01.html, example02.html` → 네트워크 그래프 (브라우저에서 열기)
 
 ---
 
