@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.7] - 2025-10-01
+### Added
+- '.github/FUNDING.yml' 추가 -> Github sponsors 버튼 활성화
+
 ## [0.2.6] - 2025-09-30
 ### Changed
 - 겹쳐짐 개선
