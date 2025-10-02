@@ -4,13 +4,13 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "atlas-framework"
-version = "0.2.8"
-description = "Atlas: Python Knowledge-Network Framework (papers–code–datasets as a graph)"
+name = "Atlas-framework"
+version = "0.2.9"
+description = "Atlas: Python Research Network Framework"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "Apache-2.0"}
-authors = [{name="Han Jungwoo", email="example@example.com"}]
+authors = [{name="Han Jungwoo", email="jwhan00427@gmail.com"}]
 dependencies = [
     "networkx>=3.1",
     "pydantic>=2.0",

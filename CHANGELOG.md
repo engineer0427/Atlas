@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.9] - 2025-10-02
+### Fixed
+- FUNDING.yml 설정에서 GitHub Sponsors 사용자명을 올바르게 수정 (`engineer0427`)
+
+
 ## [0.2.8] - 2025-10-02
 ### Added
 - GitHub Sponsors 지원을 위한 `.github/FUNDING.yml` 추가
