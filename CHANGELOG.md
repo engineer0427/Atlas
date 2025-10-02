@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.8] - 2025-10-02
+### Added
+- GitHub Sponsors 지원을 위한 `.github/FUNDING.yml` 추가
+- 프로젝트 후원 활성화 (계좌 및 세금 양식 등록 완료)
+- README 상단에 Atlas 배너 이미지(`docs/AtlasImage.png`) 및 Sponsor 버튼 추가
+
+### Changed
+- 프로젝트 소개 문서(README.md) 개선: 브랜드 아이덴티티 강화 및 후원 링크 노출
+
+
 ## [0.2.7] - 2025-10-01
 ### Added
 - '.github/FUNDING.yml' 추가 -> Github sponsors 버튼 활성화

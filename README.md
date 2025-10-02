@@ -1,6 +1,25 @@
+<p align="center">
+  <img src="docs/AtlasImage.png" alt="Atlas Logo" width="400"/>
+</p>
+
+<p align="center">
+  <a href="https://github.com/sponsors/hanjungwoo">
+    <img src="https://img.shields.io/badge/Sponsor-❤-pink?style=for-the-badge&logo=github" alt="Sponsor Atlas"/>
+  </a>
+</p>
+
+---
+
+
 # Atlas – Research Network Framework
 
 Atlas는 논문, 코드, 데이터셋을 연결해 연구 네트워크를 **지도처럼 탐색**할 수 있는 파이썬 프레임워크입니다.
+
+
+# Atlas – Research Network Framework
+
+Atlas는 논문, 코드, 데이터셋을 연결해 연구 네트워크를 **지도처럼 탐색**할 수 있는 파이썬 프레임워크입니다.
+
 
 ## 설치
 ```bash
@@ -11,6 +30,7 @@ pip install -e .
 - `example01.html, example02.html` → 네트워크 그래프 (브라우저에서 열기)
 
 ---
+
 
 ## 라이선스
 이 프로젝트는 **Apache License 2.0** 하에 배포됩니다.  
