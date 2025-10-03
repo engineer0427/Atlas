@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.0] - 2025-10-03
+### Added
+- `src/atlas/ingest/arxiv.py`: ArxivIngestor 클래스 추가 (arXiv API 기반 논문 수집 지원)
+- `examples/example03.py`: arXiv 논문 수집 콘솔 출력 예제
+- `examples/example04.py`: Ingestor 결과를 Visualizer와 연결하는 시각화 예제
+- `examples/example05.py`: 논문-코드-키워드 노드를 포함한 End-to-End 시각화 모범 예제
+
+### Changed
+- 프로젝트 구조 개선: Ingestor 모듈을 `src/atlas/ingest/` 아래에 소스별로 분리
+- README 및 예제 가이드라인 업데이트 (데이터 수집 → 시각화 파이프라인)
+
+### Notes
+- 이번 릴리스는 Atlas의 첫 **실제 데이터 기반 End-to-End 파이프라인**을 제공하며,
+  `v0.3.0`부터는 "연구 네트워크 프레임워크"의 핵심 비전이 구체적으로 드러나기 시작했습니다.
+
+
 ## [0.2.9] - 2025-10-02
 ### Fixed
 - FUNDING.yml 설정에서 GitHub Sponsors 사용자명을 올바르게 수정 (`engineer0427`)

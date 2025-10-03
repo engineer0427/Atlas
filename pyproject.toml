@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "Atlas-framework"
-version = "0.2.9"
+version = "0.3.0"
 description = "Atlas: Python Research Network Framework"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -19,6 +19,7 @@ dependencies = [
     "pyvis>=0.3.2",
     "pandas>=2.0",
     "plotly>=5.0"
+    "requests"
 ]
 
 [tool.setuptools.packages.find]

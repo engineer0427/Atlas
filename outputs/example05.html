@@ -1,0 +1,171 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#1f77b4", "font": {"color": "black"}, "id": "paper1", "label": "Resnet in Resnet: Generalizing Residual Architectures", "shape": "ellipse", "size": 20, "title": "PAPER | Resnet in Resnet: Generalizing Residual Architectures"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_1_residual", "label": "Residual", "shape": "diamond", "size": 15, "title": "DATASET | Residual"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_1_networks", "label": "networks", "shape": "diamond", "size": 15, "title": "DATASET | networks"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_1_(resnets)", "label": "(ResNets)", "shape": "diamond", "size": 15, "title": "DATASET | (ResNets)"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "code1", "label": "Resnet in Resnet: Generalizing Residual Architectures Code", "shape": "box", "size": 15, "title": "CODE | Resnet in Resnet: Generalizing Residual Architectures Code"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "paper2", "label": "Theory-based residual neural networks: A synergy of discrete choice\n  models and deep neural networks", "shape": "ellipse", "size": 20, "title": "PAPER | Theory-based residual neural networks: A synergy of discrete choice\n  models and deep neural networks"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_2_researchers", "label": "Researchers", "shape": "diamond", "size": 15, "title": "DATASET | Researchers"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_2_data-driven", "label": "data-driven", "shape": "diamond", "size": 15, "title": "DATASET | data-driven"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_2_theory-driven", "label": "theory-driven", "shape": "diamond", "size": 15, "title": "DATASET | theory-driven"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "code2", "label": "Theory-based residual neural networks: A synergy of discrete choice\n  models and deep neural networks Code", "shape": "box", "size": 15, "title": "CODE | Theory-based residual neural networks: A synergy of discrete choice\n  models and deep neural networks Code"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "paper3", "label": "Learning Deep ResNet Blocks Sequentially using Boosting Theory", "shape": "ellipse", "size": 20, "title": "PAPER | Learning Deep ResNet Blocks Sequentially using Boosting Theory"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_3_neural", "label": "neural", "shape": "diamond", "size": 15, "title": "DATASET | neural"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_3_networks", "label": "networks", "shape": "diamond", "size": 15, "title": "DATASET | networks"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_3_difficult", "label": "difficult", "shape": "diamond", "size": 15, "title": "DATASET | difficult"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "code3", "label": "Learning Deep ResNet Blocks Sequentially using Boosting Theory Code", "shape": "box", "size": 15, "title": "CODE | Learning Deep ResNet Blocks Sequentially using Boosting Theory Code"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "paper4", "label": "Forward Stability of ResNet and Its Variants", "shape": "ellipse", "size": 20, "title": "PAPER | Forward Stability of ResNet and Its Variants"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_4_residual", "label": "residual", "shape": "diamond", "size": 15, "title": "DATASET | residual"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_4_neural", "label": "neural", "shape": "diamond", "size": 15, "title": "DATASET | neural"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_4_network", "label": "network", "shape": "diamond", "size": 15, "title": "DATASET | network"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "code4", "label": "Forward Stability of ResNet and Its Variants Code", "shape": "box", "size": 15, "title": "CODE | Forward Stability of ResNet and Its Variants Code"}, {"color": "#1f77b4", "font": {"color": "black"}, "id": "paper5", "label": "On an Interpretation of ResNets via Solution Constructions", "shape": "ellipse", "size": 20, "title": "PAPER | On an Interpretation of ResNets via Solution Constructions"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_5_constructs", "label": "constructs", "shape": "diamond", "size": 15, "title": "DATASET | constructs"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_5_typical", "label": "typical", "shape": "diamond", "size": 15, "title": "DATASET | typical"}, {"color": "#ff7f0e", "font": {"color": "black"}, "id": "kw_5_solution", "label": "solution", "shape": "diamond", "size": 15, "title": "DATASET | solution"}, {"color": "#2ca02c", "font": {"color": "black"}, "id": "code5", "label": "On an Interpretation of ResNets via Solution Constructions Code", "shape": "box", "size": 15, "title": "CODE | On an Interpretation of ResNets via Solution Constructions Code"}]);
+                  edges = new vis.DataSet([{"from": "paper1", "label": "has keyword", "to": "kw_1_residual"}, {"from": "paper1", "label": "has keyword", "to": "kw_1_networks"}, {"from": "paper1", "label": "has keyword", "to": "kw_1_(resnets)"}, {"from": "paper1", "label": "implements", "to": "code1"}, {"from": "paper2", "label": "has keyword", "to": "kw_2_researchers"}, {"from": "paper2", "label": "has keyword", "to": "kw_2_data-driven"}, {"from": "paper2", "label": "has keyword", "to": "kw_2_theory-driven"}, {"from": "paper2", "label": "implements", "to": "code2"}, {"from": "paper3", "label": "has keyword", "to": "kw_3_neural"}, {"from": "paper3", "label": "has keyword", "to": "kw_3_networks"}, {"from": "paper3", "label": "has keyword", "to": "kw_3_difficult"}, {"from": "paper3", "label": "implements", "to": "code3"}, {"from": "paper4", "label": "has keyword", "to": "kw_4_residual"}, {"from": "paper4", "label": "has keyword", "to": "kw_4_neural"}, {"from": "paper4", "label": "has keyword", "to": "kw_4_network"}, {"from": "paper4", "label": "implements", "to": "code4"}, {"from": "paper5", "label": "has keyword", "to": "kw_5_constructs"}, {"from": "paper5", "label": "has keyword", "to": "kw_5_typical"}, {"from": "paper5", "label": "has keyword", "to": "kw_5_solution"}, {"from": "paper5", "label": "implements", "to": "code5"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "repulsion": {
+            "centralGravity": 0.25,
+            "damping": 0.09,
+            "nodeDistance": 350,
+            "springConstant": 0.03,
+            "springLength": 200
+        },
+        "solver": "repulsion",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

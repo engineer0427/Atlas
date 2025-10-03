@@ -22,7 +22,7 @@ pip install -e .
 ```
 
 ## 결과
-- `example01.html, example02.html` → 브라우저에서 열기
+- `outputs` → 브라우저에서 열기
 
 ---
 
